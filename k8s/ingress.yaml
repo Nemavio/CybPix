@@ -7,8 +7,8 @@ metadata:
     kubernetes.io/tls-acme: "true"
     certmanager.k8s.io/clusterissuer: letsencrypt-prod
     kubernetes.io/ingress.class: "nginx"
-  hostNetwork: "true"
 spec:
+  hostNetwork: "true"
   tls:
   - hosts:
     - _APP_NAME_.elektron.ink
