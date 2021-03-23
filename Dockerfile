@@ -4,7 +4,7 @@ WORKDIR /usr/src/cybpix
 
 RUN mkdir /root/.ssh/
 
-COPY SSHKey4CybPix /root/.ssh/id_rsa
+ADD SSHKey4CybPix /root/.ssh/id_rsa
 
 RUN touch /root/.ssh/known_hosts
 
