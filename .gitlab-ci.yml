@@ -13,23 +13,23 @@ stages:
 services:
 - $RUNNER_IMAGE
 
-Build docker image:
-  stage: build
-  before_script: &before_script
-    - echo $CI_REGISTRY
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-  script:
-    - cat $SSHKey4CybPix > SSHKey4CybPix
-    - docker build -t $IMAGE:$CI_COMMIT_SHA .
-    - docker push $IMAGE:$CI_COMMIT_SHA
+#Build docker image:
+#  stage: build
+#  before_script: &before_script
+#    - echo $CI_REGISTRY
+##    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+#  script:
+#    - cat $SSHKey4CybPix > SSHKey4CybPix
+##    - docker build -t $IMAGE:$CI_COMMIT_SHA .
+#    - docker push $IMAGE:$CI_COMMIT_SHA
 
-Push image:
-  stage: push
-  before_script: *before_script
-  script:
-    - docker pull $IMAGE:$CI_COMMIT_SHA
-    - docker tag $IMAGE:$CI_COMMIT_SHA $IMAGE:latest
-    - docker push $IMAGE:latest
+#Push image:
+#  stage: push
+##  before_script: *before_script
+#  script:
+##    - docker pull $IMAGE:$CI_COMMIT_SHA
+#    - docker tag $IMAGE:$CI_COMMIT_SHA $IMAGE:latest
+#    - docker push $IMAGE:latest
 
 Deploy:
   stage: deploy
