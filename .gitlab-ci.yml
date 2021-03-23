@@ -44,6 +44,7 @@ Deploy:
 #    - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 #    - chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
     - kubectl config set-context $(kubectl config current-context)
+    - kubectl config set-context --current --namespace="$KUBE_NAMESPACE"
     - 'printf "apiVersion: v1\nkind: Secret\n$(kubectl create secret docker-registry gitlab-registry --docker-server=$CI_REGISTRY --docker-username=$GITLAB_REGISTRY_USER --docker-password=$GITLAB_REGISTRY_TOKEN --docker-email=$GITLAB_USER_EMAIL --docker-email=GITLAB_REGISTRY_EMAIL -o yaml --dry-run)" | kubectl apply -f -'
     - sed -i 's/_APP_NAME_/'"$CI_PROJECT_NAME"'/g; s/_VERSION_/'"$CI_COMMIT_SHA"'/g' k8s/deployment.yaml;
     - sed -i 's/_APP_NAME_/'"$CI_PROJECT_NAME"'/g; s/_VERSION_/'"$CI_COMMIT_SHA"'/g' k8s/ingress.yaml;
