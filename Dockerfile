@@ -1,3 +1,5 @@
+ARG SSHKey4CybPix
+
 FROM node:15
 
 WORKDIR /usr/src/cybpix
