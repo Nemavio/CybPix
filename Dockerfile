@@ -1,14 +1,12 @@
-ARG SSHKey4CybPix
-
 FROM node:15
 
 WORKDIR /usr/src/cybpix
 
 RUN mkdir /root/.ssh/
 
-RUN cat $SSHKey4CybPix
+RUN cat SSHKey4CybPix
 
-COPY $SSHKey4CybPix /root/.ssh/id_rsa
+COPY SSHKey4CybPix /root/.ssh/id_rsa
 
 RUN touch /root/.ssh/known_hosts
 
