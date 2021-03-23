@@ -16,6 +16,6 @@ RUN git clone git@github.com:15dev/PhotoSharing.git /usr/src/cybpix
 
 RUN npm install
 
-EXPOSE 80
+EXPOSE 5000
 
 CMD [ "node", "index.js" ]
