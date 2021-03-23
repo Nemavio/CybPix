@@ -14,7 +14,7 @@ RUN cat /root/.ssh/id_rsa
 
 WORKDIR /usr/src/cybpix
 
-RUN git clone git@github.com:15dev/PhotoSharing/PhotoSharing.git /usr/src/cybpix
+RUN git clone git@github.com:15dev/PhotoSharing.git /usr/src/cybpix
 
 RUN npm install
 
