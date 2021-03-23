@@ -33,7 +33,7 @@ services:
 
 Deploy:
   stage: deploy
-  image: registry.hub.docker.com/alpine/k8s
+  image: alpine/k8s:1.14.9
   environment:
     name: production
   script:
