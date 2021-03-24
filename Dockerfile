@@ -16,6 +16,8 @@ RUN git clone git@github.com:15dev/PhotoSharing.git /usr/src/cybpix
 
 RUN npm install
 
+RUN npm install concurrently
+
 EXPOSE 5000
 
 CMD [ "yarn", "start" ]
