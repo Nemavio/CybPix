@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: front
-  name: _APP_NAME_
+  name: _APP_NAME_-svc
 spec:
   ports:
     - name: http
