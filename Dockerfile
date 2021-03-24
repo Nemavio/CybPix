@@ -20,6 +20,8 @@ RUN npm install
 
 RUN cd client/ && npm install
 
+WORKDIR /usr/src/cybpix
+
 EXPOSE 5000
 
 CMD [ "yarn", "start" ]
