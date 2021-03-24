@@ -16,7 +16,7 @@ RUN git clone git@github.com:15dev/PhotoSharing.git /usr/src/cybpix
 
 RUN npm install
 
-RUN npm install concurrently
+RUN cd client/ && npm install
 
 EXPOSE 5000
 
