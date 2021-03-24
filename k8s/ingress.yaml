@@ -19,4 +19,4 @@ spec:
       - path: /
         backend:
           serviceName: _APP_NAME_
-          servicePort: 5000
+          servicePort: 80
