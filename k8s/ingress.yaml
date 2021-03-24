@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: _APP_NAME_
+  name: _APP_NAME_-svc
   annotations:
     ingress.kubernetes.io/ssl-redirect: "true"
     kubernetes.io/tls-acme: "true"
@@ -18,5 +18,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: _APP_NAME_
+          serviceName: _APP_NAME_-svc
           servicePort: 80
