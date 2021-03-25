@@ -22,7 +22,7 @@ RUN cd client/ && npm install
 
 WORKDIR /usr/src/cybpix
 
-ADD .env
+ADD .env /usr/src/cybpix
 
 EXPOSE 3000
 
