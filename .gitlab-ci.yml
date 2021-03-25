@@ -19,6 +19,7 @@ Build docker image:
     - echo $CI_REGISTRY
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
+    - cat $DB_CONFIG > .env
     - cat $SSHKey4CybPix > SSHKey4CybPix
     - docker build -t $IMAGE:$CI_COMMIT_SHA .
     - docker push $IMAGE:$CI_COMMIT_SHA
