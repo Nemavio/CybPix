@@ -22,8 +22,8 @@ RUN cd client/ && npm install
 
 WORKDIR /usr/src/cybpix
 
-ADD .env /usr/src/cybpix
+ADD .env /usr/src/cybpix/.env
 
-EXPOSE 3000
+EXPOSE 3000 5000
 
 CMD [ "yarn", "start" ]
