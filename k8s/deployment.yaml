@@ -25,7 +25,7 @@ spec:
         - name: _APP_NAME_
           image: docker.vtns.net/imta-formation/fip3a/_APP_NAME_:latest
           ports:
-            - containerPort: 5000
+            - containerPort: 3000
           env:
             - name: FOO
               value: bar
