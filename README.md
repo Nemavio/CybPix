@@ -19,12 +19,19 @@ Ainsi, nous avons mis en place ces points de sécurité :
 
 :bomb: Injection SQL (injection développée volontairement, car le fonctionnement de pg sous node empêche toute injection de base)
 
+> L'injection SQL est présentée dans le dépôt du code source de l'application.
+
 :bar_chart: Déploiement k8s avec BackEnd et FrontEnd en HA dans plusieurs pods pour tenir la charge
+
+> Le déploiement du cluster est réalisé grâce à la CI/CD de Gitlab (voir .gitlab-ci.yml) et le cluster est décrit par les fichiers de configuration k8s présents dans le dossier k8s/
 
 :cop: Déploiement d'un certificat SSL pour la présence d'une couche HTTP TLS
 
-:traffic_light: Mise en place de IPFW, dans le but de bloquer tout accès extérieur à la base de donnée
+> Le déploiement d'un certificat Let's Encrypt est réalisé directement grâce à l'ingress controller basé sous nginx de k8s
 
+:traffic_light: Mise en place de NFTables, dans le but de bloquer tout accès extérieur à la base de donnée
+
+> Un pare-feu NFTables a été mis en place. Nous avions la volonté de déployer au débit UFW, cependant la couche docker k8s met en oeuvre de nombreux liens réseaux. UFW ne permet pas une configuration complexe, de ce fait nous nous sommes tournés vers NFTables. la configuration est disponible dans le fichier nftables.conf. Nous autorisons uniquement les communications sur les ports HTTP et HTTPS depuis l'extérieur ainsi que la communication sur l'API sécurisée par TLS de k8s sur le port TCP 16443. De plus, nous autorisons le SSH, uniquement en IPv6. De plus, en dehors du pare-feu, nous n'autorisons les connexions SSH uniquement par certificat.
 
 ## Compétences acquises
 
